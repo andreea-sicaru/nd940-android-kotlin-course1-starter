@@ -8,4 +8,6 @@
     <string name="sign_up_button">Sign up</string>
     <string name="store_description">Explore a comprehensive collection of detailed information on every type of shoe imaginable. From athletic sneakers to elegant heels and everyday comfort shoes, our app provides in-depth details, history, and trends. Perfect for shoe enthusiasts, collectors, and fashionistas alike. Step into the world of shoes with us!</string>
     <string name="instruction_description">Browse or Search: Find the shoe you want to add. Tap the Shoe: Open the shoe\'s detailed information page. Click \'Add to List\': Tap the button to save the shoe to your list.</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="shoe_list">Shoe list</string>
 </resources>
