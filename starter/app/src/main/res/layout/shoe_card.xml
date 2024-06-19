@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shoecard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/shoecard_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nike Pros" />
+
+        <TextView
+            android:id="@+id/shoecard_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/shoecard_name"
+            app:layout_constraintTop_toBottomOf="@id/shoecard_name"
+            tools:text="45" />
+
+        <TextView
+            android:id="@+id/shoecard_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/shoecard_size"
+            app:layout_constraintTop_toBottomOf="@id/shoecard_size"
+            tools:text="Nike" />
+
+        <TextView
+            android:id="@+id/shoecard_description"
+            android:layout_width="450dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/shoecard_company"
+            app:layout_constraintTop_toBottomOf="@id/shoecard_company"
+            tools:text="Running shoes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
