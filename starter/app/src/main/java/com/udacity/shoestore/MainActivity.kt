@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.welcome_fragment)
+        setContentView(R.layout.instruction_fragment)
         Timber.plant(Timber.DebugTree())
     }
 }
