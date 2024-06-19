@@ -48,24 +48,6 @@
             app:layout_constraintStart_toStartOf="@+id/shoe_size_editText"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_editText" />
 
-        <TextView
-            android:id="@+id/shoe_company"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/shoe_company"
-            app:layout_constraintBottom_toTopOf="@+id/shoe_company_editText"
-            app:layout_constraintStart_toStartOf="@+id/shoe_company_editText"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_size_editText" />
-
-        <TextView
-            android:id="@+id/shoe_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/shoe_description"
-            app:layout_constraintBottom_toTopOf="@+id/shoe_description_editText"
-            app:layout_constraintStart_toStartOf="@+id/shoe_description_editText"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_company_editText" />
-
         <EditText
             android:id="@+id/shoe_size_editText"
             android:layout_width="0dp"
@@ -76,15 +58,34 @@
             app:layout_constraintStart_toStartOf="@+id/shoe_company"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size" />
 
+        <TextView
+            android:id="@+id/shoe_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/shoe_company"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_company_editText"
+            app:layout_constraintStart_toStartOf="@+id/shoe_company_editText"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_size_editText" />
+
         <EditText
             android:id="@+id/shoe_company_editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/shoe_description"
             app:layout_constraintStart_toStartOf="@+id/shoe_description"
             app:layout_constraintTop_toBottomOf="@+id/shoe_company" />
+
+        <TextView
+            android:id="@+id/shoe_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/shoe_description"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_description_editText"
+            app:layout_constraintStart_toStartOf="@+id/shoe_description_editText"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_company_editText" />
+
 
         <EditText
             android:id="@+id/shoe_description_editText"
@@ -92,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="text"
             app:layout_constraintBottom_toTopOf="@+id/save_shoe_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_description" />
