@@ -43,6 +43,10 @@ class ShoeListFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
+        viewModel.addShoe("Nike Air Max", 10, "Nike", "The Nike Air Max is a classic shoe.")
+        viewModel.addShoe("Adidas Superstar", 9, "Adidas", "The Adidas Superstar is a classic shoe.")
+        viewModel.addShoe("Vans Old Skool", 9, "Vans", "The Vans Old Skool is a classic shoe.")
+
         return binding.root
     }
 
