@@ -6,11 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeaddFragmentBinding
+import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.shoelist.ShoeListViewModel
 
 class ShoeAddFragment : Fragment() {
+
+    private val viewModel: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -19,26 +24,15 @@ class ShoeAddFragment : Fragment() {
             inflater, R.layout.shoeadd_fragment, container, false
         )
 
+        binding.shoe = Shoe("", 0.0, "", "")
+        binding.viewModel = viewModel
 
+        viewModel.eventGoToShoeList.observe(viewLifecycleOwner) { goToShoeList ->
+            if (goToShoeList) {
+                findNavController().navigate(ShoeAddFragmentDirections.actionShoeAddFragmentToShoeListFragment())
 
-        binding.cancelButton.setOnClickListener {
-            findNavController().navigate(
-                ShoeAddFragmentDirections.actionShoeAddFragmentToShoeListFragment(
-                    "", 0, "", ""
-                )
-            )
-        }
-
-        // TODO: Disable save button if a field is empty
-        binding.saveShoeButton.setOnClickListener {
-            findNavController().navigate(
-                ShoeAddFragmentDirections.actionShoeAddFragmentToShoeListFragment(
-                    binding.shoeNameEditText.text.toString(),
-                    binding.shoeSizeEditText.text.toString().toInt(),
-                    binding.shoeCompanyEditText.text.toString(),
-                    binding.shoeDescriptionEditText.text.toString()
-                )
-            )
+                viewModel.onGoToShoeListComplete()
+            }
         }
 
         return binding.root

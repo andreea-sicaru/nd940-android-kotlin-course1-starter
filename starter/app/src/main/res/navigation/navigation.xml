@@ -35,18 +35,6 @@
         <action
             android:id="@+id/action_shoeListFragment_to_shoeAddFragment"
             app:destination="@id/shoeAddFragment" />
-        <argument
-            android:name="shoeName"
-            app:argType="string" />
-        <argument
-            android:name="shoeSize"
-            app:argType="integer" />
-        <argument
-            android:name="shoeCompany"
-            app:argType="string" />
-        <argument
-            android:name="shoeDescription"
-            app:argType="string" />
         <action
             android:id="@+id/action_shoeListFragment_to_loginFragment"
             app:destination="@id/loginFragment" />

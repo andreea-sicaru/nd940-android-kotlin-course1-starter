@@ -23,12 +23,10 @@ class ShoeListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val binding: ShoelistFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.shoelist_fragment, container, false
-        )
+        val binding: ShoelistFragmentBinding =
+            DataBindingUtil.inflate(inflater, R.layout.shoelist_fragment, container, false)
+        binding.viewModel = viewModel
 
-        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
-        addShoeFromArgs(args)
 
         viewModel.shoeList.observe(viewLifecycleOwner) { shoeList ->
             shoeList.forEach { shoe ->
@@ -37,15 +35,14 @@ class ShoeListFragment : Fragment() {
             }
         }
 
-        binding.addShoeButton.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeAddFragment())
+        viewModel.eventGoToShoeAdd.observe(viewLifecycleOwner) { goToAddShoe ->
+            if (goToAddShoe) {
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeAddFragment())
+                viewModel.onAddShoeAddComplete()
+            }
         }
 
         setHasOptionsMenu(true)
-
-        viewModel.addShoe("Nike Air Max", 10, "Nike", "The Nike Air Max is a classic shoe.")
-        viewModel.addShoe("Adidas Superstar", 9, "Adidas", "The Adidas Superstar is a classic shoe.")
-        viewModel.addShoe("Vans Old Skool", 9, "Vans", "The Vans Old Skool is a classic shoe.")
 
         return binding.root
     }
@@ -64,16 +61,8 @@ class ShoeListFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun addShoeFromArgs(args: ShoeListFragmentArgs) {
-        if (args.shoeName != "" && args.shoeSize != 0 && args.shoeCompany != "" && args.shoeDescription != "") {
-            viewModel.addShoe(args.shoeName, args.shoeSize, args.shoeCompany, args.shoeDescription)
-        }
-    }
-
     private fun createShoeCard(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        shoe: Shoe
+        inflater: LayoutInflater, container: ViewGroup?, shoe: Shoe
     ): CardView {
         val shoeCard = inflater.inflate(R.layout.shoe_card, container, false) as CardView
         shoeCard.findViewById<TextView>(R.id.shoecard_name).text = shoe.name
