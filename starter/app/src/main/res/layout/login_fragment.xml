@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<!--    ConstraintLayout was used here because it makes it easier to align the views in the layout while keeping the view hierchy flat. -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_fragment"
         android:layout_width="match_parent"
